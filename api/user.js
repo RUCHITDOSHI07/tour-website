@@ -98,63 +98,60 @@ router.post('/signup',(req,res)=>{
 });
 
 //signin
-router.post( '/signin' , ( req , res ) => {
-
-    let{email,password}= req.body;
+router.post('/signin', (req, res) => {
+    let { email, password } = req.body;
     email = email.trim();
-    password=password.trim();
+    password = password.trim();
 
-    if( email=="" || password=="")
-    {
+    if (email === "" || password === "") {
         res.json({
-            status:"Failed",
-            message:"Empty input fields!"
-        })
-    }else{
-
-        User.find({email}).then(data=>{
-            if (data.length){
-                //user exists
-
-                const hashedPassword = data[0].password;
-                bcrypt.compare(password , hashedPassword).then(result=>{
-                    if(result)
-                    {
-                        res.json({
-                            status:"success",
-                            message:"signin successful",
-                            data:data
+            status: "Failed",
+            message: "Empty input fields!"
+        });
+    } else {
+        User.find({ email })
+            .then(data => {
+                if (data.length > 0) {
+                    const hashedPassword = data[0].password;
+                    bcrypt.compare(password, hashedPassword)
+                        .then(result => {
+                            if (result) {
+                                res.json({
+                                    status: "success",
+                                    message: "signin successful",
+                                    data: data
+                                });
+                            } else {
+                                res.json({
+                                    status: "failed",
+                                    message: "invalid password"
+                                });
+                            }
                         })
-                    }else{
-                        res.json({
-                            status:"failed",
-                            message:"invalid password"
-                        })
-                    }
-                })
-                .catch(err=>{
+                        .catch(err => {
+                            console.error("Error comparing passwords:", err.message);
+                            res.json({
+                                status: "failed",
+                                message: "error"
+                            });
+                        });
+                } else {
+                    console.log("No user found with email:", email);
                     res.json({
-                        status:"failed",
-                        message:"error"
-                    })
-                    console.log("if");
-                })
-            }else {
-                res.json({
-                    status:"failed",
-                    message:"error"
-                })
-                console.log("else");
-            }
-        }).catch(err=>{
-            res.json({
-                status:"failed",
-                message:"error"
+                        status: "failed",
+                        message: "No user found"
+                    });
+                }
             })
-            console.log("else catch");
-        })
-
+            .catch(err => {
+                console.error("Error finding user:", err.message);
+                res.json({
+                    status: "failed",
+                    message: "error"
+                });
+            });
     }
 });
+
 
 module.exports=router;
