@@ -1,14 +1,13 @@
-const mongoose = require( 'mongoose' );
-const { stringify } = require('querystring');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const UserSchema = new Schema({
-    name:String,
-    email:String,
-    password:String,
-    dateOfBirth:Date
+    name: String,
+    email: String,
+    password: String,
+    dateOfBirth: Date
 });
 
-const User = mongoose.model('User',UserSchema);
+const User = mongoose.model('User', UserSchema);
 
-module.exports=User ;
+module.exports = User;
