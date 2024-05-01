@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Operator</title>
+    <link rel="stylesheet" href="/public/css/landing.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Tour Operator</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Flights</a></li>
+                    <li><a href="#">Trains</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Holiday Packages</a></li>
+                    <li><a href="#">Cabs</a></li>
+                    <li><a href="public/main.html">Profile</a></li>
+                </ul>
+            </nav>
+    </div>
+</div>
+    </header>
+    
+   <section class="hero">
+    <div class="container">
+        <h2>Share Your Next Adventure</h2>
+        <p>Explore destinations, find the best deals, and create unforgettable memories.</p>
+        <a href="#" class="btn">upload Now</a>
+
+        <div class="booking-container">
+            <label for="fromCity">From:</label>
+            <select id="fromCity">
+                <option value="delhi">Delhi</option>
+                <option value="mumbai">Mumbai</option>
+                <!-- Add other Indian cities as options -->
+            </select>
+
+            <label for="toCity">To:</label>
+            <select id="toCity">
+                <option value="goa">Goa</option>
+                <option value="jaipur">Jaipur</option>
+                <!-- Add other Indian cities as options -->
+            </select>
+
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" required>
+
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" required>
+
+            <label for="modeOfTransport">Mode of Transport:</label>
+            <select id="modeOfTransport">
+                <option value="flights">Flights</option>
+                <option value="trains">Trains</option>
+            </select>
+
+            <button onclick="submitBooking()">Submit</button>
+        </div>
+    </div>
+    
+</section>
+
+
+    <section class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-icons">
+                <div class="service-icon">
+                    <img src="flight-icon.png" alt="Flights">
+                    <p>Flights</p>
+                </div>
+                <div class="service-icon">
+                    <img src="train-icon.png" alt="Trains">
+                    <p>Trains</p>
+                </div>
+                <div class="service-icon">
+                    <img src="hotel-icon.png" alt="Hotels">
+                    <p>Hotels</p>
+                </div>
+                <div class="service-icon">
+                    <img src="package-icon.png" alt="Holiday Packages">
+                    <p>Holiday Packages</p>
+                </div>
+                <div class="service-icon">
+                    <img src="cab-icon.png" alt="Cabs">
+                    <p>Cabs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tour Operator. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/landing.js"></script>
+</body>
+</html>
