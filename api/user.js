@@ -137,18 +137,21 @@ router.post( '/signin' , ( req , res ) => {
                         status:"failed",
                         message:"error"
                     })
+                    console.log("if");
                 })
             }else {
                 res.json({
                     status:"failed",
                     message:"error"
                 })
+                console.log("else");
             }
         }).catch(err=>{
             res.json({
                 status:"failed",
                 message:"error"
             })
+            console.log("else catch");
         })
 
     }
