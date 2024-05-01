@@ -1,7 +1,7 @@
 
 //mongodb
 require('./config/db');
-
+const mongoose = require('mongoose');
 const app = require('express')();
 const port = process.env.PORT || 3000;
 const UserRouter = require('./api/user');
